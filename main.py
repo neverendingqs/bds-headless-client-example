@@ -20,20 +20,104 @@ CONFIG_LOCATION = 'config.json'
 
 DATA_SET_METADATA = [
     DataSetMetadata(
-        plugin='07a9e561-e22f-4e82-8dd6-7bfb14c91776',
-        table='org_units'
+        plugin='b12a4203-3169-4dbb-9e6b-e979fc1620a9',
+        table='assignment_submission_details'
+    ),
+    DataSetMetadata(
+        plugin='041dde83-3a29-4a37-97de-9ee615318111',
+        table='assignment_submissions'
+    ),
+    DataSetMetadata(
+        plugin='d9923de9-de6a-41ea-a63e-e8fd771b7b93',
+        table='assignment_summary'
+    ),
+    DataSetMetadata(
+        plugin='7b98d9e0-4339-406d-bd78-0821729817ae',
+        table='attendance_details'
+    ),
+    DataSetMetadata(
+        plugin='7e16311c-d302-45da-afd9-98af90706ccb',
+        table='content_objects'
+    ),
+    DataSetMetadata(
+        plugin='1c50d2a2-990b-4897-a8c2-89a7a3202514',
+        table='content_user_completion'
+    ),
+    DataSetMetadata(
+        plugin='428AD0CB-6203-486D-BE85-ADB01C79578B',
+        table='content_user_progress'
+    ),
+    DataSetMetadata(
+        plugin='ac51124b-6038-4b04-a186-92eb4cef40b0',
+        table='discussion_posts_read_status'
+    ),
+    DataSetMetadata(
+        plugin='bce64f34-acee-415e-aceb-e3a38ddf476f',
+        table='discussion_posts'
     ),
     DataSetMetadata(
         plugin='793668a8-2c58-4e5e-b263-412d28d5703f',
         table='grade_objects'
     ),
     DataSetMetadata(
-        plugin='1d6d722e-b572-456f-97c1-d526570daa6b',
-        table='users'
-    ),
-    DataSetMetadata(
         plugin='9d8a96b4-8145-416d-bd18-11402bc58f8d',
         table='grade_results'
+    ),
+    DataSetMetadata(
+        plugin='74308e1e-b0c0-437c-b3df-3a19e3b6f305',
+        table='grade_schemes'
+    ),
+    DataSetMetadata(
+        plugin='61726e1b-bf42-4cab-910d-e5a226dec4f0',
+        table='org_unit_ancestors'
+    ),
+    DataSetMetadata(
+        plugin='07a9e561-e22f-4e82-8dd6-7bfb14c91776',
+        table='org_units'
+    ),
+    DataSetMetadata(
+        plugin='f1623581-c5d7-4562-93fe-6ad16010c96b',
+        table='quiz_attempts'
+    ),
+    DataSetMetadata(
+        plugin='14a07c0a-2166-41d6-859a-2e0b7fc54be1',
+        table='quiz_question_answer_options'
+    ),
+    DataSetMetadata(
+        plugin='7b530c69-4462-48a9-9acc-64a84fda6b37',
+        table='quiz_question_answers'
+    ),
+    DataSetMetadata(
+        plugin='56069703-048e-4151-a4ce-a2155d582d79',
+        table='quiz_questions'
+    ),
+    DataSetMetadata(
+        plugin='24d9051c-509a-4ea3-81bc-735f36bf94f0',
+        table='quiz_user_answer_responses'
+    ),
+    DataSetMetadata(
+        plugin='93d6063b-61d4-4629-a6af-b4fad71f8c55',
+        table='quiz_user_answers'
+    ),
+    DataSetMetadata(
+        plugin='cd7fa762-841e-48c5-abd7-6379b84963bf',
+        table='rubric_assessment'
+    ),
+    DataSetMetadata(
+        plugin='612e3196-52ad-42bd-b460-8b850f7a7be1',
+        table='rubric_assessment_criteria'
+    ),
+    DataSetMetadata(
+        plugin='533f84c8-b2ad-4688-94dc-c839952e9c4f',
+        table='user_enrollments'
+    ),
+    DataSetMetadata(
+        plugin='20794201-b8fe-4010-9197-9f4997f91531',
+        table='user_logins'
+    ),
+    DataSetMetadata(
+        plugin='1d6d722e-b572-456f-97c1-d526570daa6b',
+        table='users'
     )
 ]
 
