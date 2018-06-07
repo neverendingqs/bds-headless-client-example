@@ -18,8 +18,6 @@ Sample Brightspace Data Sets headless client using OAuth 2.0 refresh tokens
   with scope `datahub:dataexports:*`
 * [Python 3](https://www.python.org/)
   * This example was tested using Python 3.6
-* [PostgreSQL](https://www.postgresql.org/) server and database
-  * This example was tested using PostgreSQL 9.6.2
 
 ## Setup
 
@@ -29,9 +27,6 @@ Sample Brightspace Data Sets headless client using OAuth 2.0 refresh tokens
   * Note: this file contains sensitive information, and its file permissions
     should be set so that it is only readable by the user running this script
     (e.g. `chmod 600 config.json`)
-* Create the required tables by running the SQL scripts in
-  [schema/tables](./schema/tables) on the database being used either manually or
-  using [create_schema.py](./create_schema.py)
 
 ### Configs
 
@@ -41,10 +36,6 @@ Sample Brightspace Data Sets headless client using OAuth 2.0 refresh tokens
 | client_id     | From OAuth 2.0 application registration     |
 | client_secret | From OAuth 2.0 application registration     |
 | refresh_token | From `Prerequisites`                        |
-| dbhost        | Hostname of the PostgreSQL server           |
-| dbname        | Name of the database                        |
-| dbuser        | Username for accessing the database         |
-| dbpassword    | Password of the user accessing the database |
 
 ### Folder Structure
 
@@ -53,9 +44,6 @@ using this script.
 
 ```
 .
-+-- schema
-|   +-- upserts
-|       +-- ...
 +-- config.json
 +-- main.py
 ```
@@ -63,55 +51,6 @@ using this script.
 ## Usage
 
 ```bash
-python main.py --help
-python main.py # full data sets
-python main.py --differential
+python main.py
 ```
 
-## Sample Query
-
-Once the data has been loaded into the database, the following queries should
-return a preview of the data:
-
-```sql
-SELECT
-    u.user_name AS student_name,
-    ou.name AS org_unit_name,
-    go.name AS grade_object_name,
-    CASE
-        WHEN gr.points_denominator = 0
-        THEN 0
-        ELSE ROUND(gr.points_numerator / gr.points_denominator, 2)
-    END AS grade
-FROM grade_results gr
-
-INNER JOIN users u
-ON gr.user_id = u.user_id
-
-INNER JOIN org_units ou
-ON gr.org_unit_id = ou.org_unit_id
-
-INNER JOIN grade_objects go
-ON gr.grade_object_id = go.grade_object_id
-
-LIMIT 50;
-```
-
-```sql
-SELECT
-    u.first_name AS first_name,
-    u.last_name AS last_name,
-    u.user_name AS user_name,
-    ue.role_name AS enrolled_role_name,
-    ou.name AS org_unit_name,
-    ue.enrollment_date AS enrollment_date
-FROM user_enrollments ue
-
-INNER JOIN users u
-ON ue.user_id = u.user_id
-
-INNER JOIN org_units ou
-ON ue.org_unit_id = ou.org_unit_id
-
-LIMIT 50;
-```
