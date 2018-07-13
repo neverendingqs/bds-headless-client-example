@@ -73,7 +73,7 @@ def get_plugin_link_mapping(config, access_token):
 
     return { d['PluginId']: d['DownloadLink'] for d in data_sets }
 
-def unzip(response_content):
+def unzip(response_content, extract_location):
     with io.BytesIO(response_content) as response_stream:
         with zipfile.ZipFile(response_stream) as zipped_data_set:
             files = zipped_data_set.namelist()
@@ -81,7 +81,7 @@ def unzip(response_content):
             assert len(files) == 1
             csv_name = files[0]
 
-            zipped_data_set.extractall('data_sets')
+            zipped_data_set.extractall(extract_location)
 
 if __name__ == '__main__':
     config = get_config()
@@ -100,4 +100,4 @@ if __name__ == '__main__':
             endpoint=plugin_to_link[plugin],
             access_token=token_response['access_token']
         )
-        unzip(response.content)
+        unzip(response.content, config['extract_location'])
